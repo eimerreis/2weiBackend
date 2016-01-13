@@ -1,10 +1,10 @@
 require("../models/Page");
 var mongoose = require("mongoose");
-var Page = mongoose.Model("Page");
+var Page = mongoose.model("Page");
 
 exports.getAll = function(req, res){
     Page.find().exec(function(err, pages){
-       res.jsonp(players);
+       res.jsonp(pages);
     });
 };
 
