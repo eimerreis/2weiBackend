@@ -13,3 +13,8 @@ exports.getSingle = function(req, res){
      res.jsonp(page);
   });
 };
+
+exports.deleteSingle = function(req, res){
+    console.log("Eintrag geläscht - request id: " + req.params.id);
+    Page.find({_id: req.params.id}).remove().exec();
+};

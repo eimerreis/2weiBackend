@@ -1,8 +1,50 @@
-<div ui-sortable class="ui middle aligned selection list" ng-model="pages">
-    <div ng-repeat="page in pages" id="1" class="item">
-        <img class="ui avatar image" src="{{page.image}}">
-        <div class="content">
-            <div class="header">{{page.title}}</div>
+<div class="ui huge centered header"> Videowand Seiten</div> <div class="right floated content"><button class="ui icon button"><i class="plus icon"></i>Add Page</button></div>
+
+<div class="ui two column grid">
+    <div class="column">
+        <div ui-sortable class="ui massive celled selection list" ng-model="pages">
+            <div ng-repeat="page in pages" id="{{page._id}}" class="item">
+                <img class="ui medium bordered image" src="img/pages/{{page._id}}.jpg">
+                <div class="content">
+                    <div class="header">{{page.title}}</div>
+                </div>
+                <div class="right floated content">
+                    <a class="ui icon button">
+                        <i class="zoom icon"></i>
+                        View
+                    </a>
+                    <a href="#/pages/{{page._id}}/edit" class="ui icon button">
+                        <i class="pencil icon"></i>
+                        Edit
+                    </a>
+                    <button ng-click="delete(page._id, $index)" class="ui red icon button">
+                        <i class="trash icon"></i>
+                        Delete
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui small basic modal">
+    <div class="ui icon header">
+        <i class="trash icon"></i>
+        Really delete this page?
+    </div>
+    <div class="content">
+        <p>Are you sure to delete this page?</p>
+    </div>
+    <div class="actions">
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            No
+        </div>
+        <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Yes
         </div>
     </div>
 </div>
