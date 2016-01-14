@@ -42,6 +42,14 @@ pages.controller("PageEditController", function($scope, $routeParams){
     $scope.page = Page.get({"_id": $routeParams.id}, function(page){
         $scope.page = page;
     });
+
+    angular.element(document).ready(function(){
+        $("#contentarea").contentbuilder({
+            zoom: 0.85,
+            snippetOpen: true,
+            snippetFile: 'assets/default/snippets.html'
+        });
+    });
 });
 
 pages.factory("Page", function($resource){
